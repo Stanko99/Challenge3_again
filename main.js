@@ -14,7 +14,7 @@ function showWeather() {
     var landing = document.getElementById("dropDown");
     var cityId = landing.options[landing.selectedIndex].value
     // took me forverver to learn how to target this,. Targeting the ID of the city names of the dropdown.
-    const key = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityId + "&appid=f4d54c4c55da307dc69dfa51e113fe05"
+    var key = "http://api.openweathermap.org/data/2.5/forecast?id=" + cityId + "&appid=f4d54c4c55da307dc69dfa51e113fe05"
     // Using Get to request data from the weatherApi
     var info = eval("(" + httpGet(key) + ")");
     // calling eval() to evaluate the string data, I had to ask for help in stack Overflow for this one as i couldn't make it work properly
@@ -23,7 +23,7 @@ function showWeather() {
 
     var theirTime = "lat=" + coord.lat + "&lng=" + coord.lon
     var cordinates = coord.lat + "," + coord.lon
-    const key2api = "https://api.geonames.org/timezoneJSON?" + theirTime + "&username=javthon"
+    var key2api = "http://api.geonames.org/timezoneJSON?" + theirTime + "&username=javthon"
     // i decided to do local time as my second api. I enitially wanted to have a map which shows the landing points from the drop down but i was able to make it work along side the first api
     var final2 = httpGet(key2api) // Get request for 2d api. I tried to write it without declaring ' final2' and staight eval("("+httpGet(key2api)+")") but it didnt work, I was puzzled why
     var localTime = eval("(" + final2 + ")").time // same approach as with the first. 
