@@ -6,7 +6,6 @@ function httpGet(api101) // GET to aquire the api
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", api101, false);
-    xmlHttp.send(null);
     return xmlHttp.responseText;
 }
 
